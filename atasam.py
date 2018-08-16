@@ -93,12 +93,12 @@ class window(QWidget):
 		if ledx[i].color == "red":
 			ledx[i].color = "green"
 			self.ledy[i].setPixmap(self.green.scaled(100,100))
-			GPIO.output(pin[i],1)
+			# GPIO.output(pin[i],1)
 			print("yak")
 		else:
 			ledx[i].color = "red"
 			self.ledy[i].setPixmap(self.red.scaled(100,100))
-			GPIO.output(pin[i],0)
+			# GPIO.output(pin[i],0)
 			print("yakma")
 
 
