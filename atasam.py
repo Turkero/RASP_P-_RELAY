@@ -1,19 +1,22 @@
 import sys
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QApplication, QLabel, QPushButton,QLineEdit, QCheckBox)
 from PyQt5.QtGui import * 
-# import RPi.GPIO as GPIO
+
+#initilize pins for 
+import RPi.GPIO as GPIO
 
 
-# GPIO.setmode(GPIO.BOARD) 
-# GPIO.setup(11,GPIO.OUT)
-# GPIO.setup(12,GPIO.OUT)
-# GPIO.setup(13,GPIO.OUT)
-# GPIO.setup(15,GPIO.OUT)
-# GPIO.output(11,0)
-# GPIO.output(12,0)
-# GPIO.output(13,0)
-# GPIO.output(15,0)
-# pin = [11,12,13,15]
+
+GPIO.setmode(GPIO.BOARD) 
+GPIO.setup(11,GPIO.OUT)
+GPIO.setup(12,GPIO.OUT)
+GPIO.setup(13,GPIO.OUT)
+GPIO.setup(15,GPIO.OUT)
+GPIO.output(11,0)
+GPIO.output(12,0)
+GPIO.output(13,0)
+GPIO.output(15,0)
+pin = [11,12,13,15]
 
 
 class led(object):
@@ -45,14 +48,7 @@ class window(QWidget):
 			i = QLabel()
 			i.setPixmap(self.red.scaled(100,100))
 			self.ledy.append(i)
-		# self.f1 = QLabel()
-		# self.f1.setPixmap(green.scaled(100,100))
-		# self.f2 = QLabel()
-		# self.f2.setPixmap(green.scaled(100,100))
-		# self.f3 = QLabel()
-		# self.f3.setPixmap(green.scaled(100,100))
-		# self.f4 = QLabel()
-		# self.f4.setPixmap(green.scaled(100,100))
+
 
 
 
@@ -93,12 +89,12 @@ class window(QWidget):
 		if ledx[i].color == "red":
 			ledx[i].color = "green"
 			self.ledy[i].setPixmap(self.green.scaled(100,100))
-			# GPIO.output(pin[i],1)
+			GPIO.output(pin[i],1)
 			print("yak")
 		else:
 			ledx[i].color = "red"
 			self.ledy[i].setPixmap(self.red.scaled(100,100))
-			# GPIO.output(pin[i],0)
+			GPIO.output(pin[i],0)
 			print("yakma")
 
 
